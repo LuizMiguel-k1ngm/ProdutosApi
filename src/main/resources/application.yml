@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: ProdutosApi
+
+  datasource:
+    url: jdbc:h2:mem:produtos
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+
+  jpa:
+    hibernate:
+      ddl-auto:
