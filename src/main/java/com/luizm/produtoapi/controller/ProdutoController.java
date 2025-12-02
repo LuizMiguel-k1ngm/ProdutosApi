@@ -1,7 +1,10 @@
 package com.luizm.produtoapi.controller;
 
+import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +33,13 @@ public class ProdutoController {
 	public ProdutoController(ProdutoRepository produtoRepository) {
 		super();
 		this.produtoRepository = produtoRepository;
+	}
+	
+	
+	@GetMapping("/{id}")
+	public Produto obterPorId(@PathVariable("id") String id) {
+		return produtoRepository.findById(id).orElse(null);
+		
 	}
 
 }
